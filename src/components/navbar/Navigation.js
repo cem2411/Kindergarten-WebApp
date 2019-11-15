@@ -15,7 +15,7 @@
               </Nav>
 
               <Nav>
-                <Nav.Link href="#deets">PROFIL</Nav.Link>      
+                <Nav.Link href="/">PROFIL</Nav.Link>      
               </Nav>
 
             </Navbar.Collapse>
