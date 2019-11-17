@@ -5,6 +5,7 @@ import { Eattendance } from "./components/submenu/educator/Eattendance";
 import { Pattendance } from "./components/submenu/parent/Pattendance";
 import { Info } from './components/submenu/info/Info';
 import { Footer } from "./components/footer/Footer";
+import { Login } from "./components/login/Login";
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <div className="container">
           <header>
             <Navigation />
+            <Login/>
           </header>
           <Switch>
             <Route path="/Eattendance" component={Eattendance} />
