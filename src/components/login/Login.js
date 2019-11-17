@@ -39,12 +39,6 @@ export class Login extends Component {
                 />
               </div>
 
-              <label htmlFor="usertype">Benutzertyp: </label>
-              <select name="usertype" form="login__form">
-                <option value="0" defaultValue="0">Erziehungsberechtige/er</option>
-                <option value="1">Mitarbeiter</option>
-              </select>
-
             </div>
 
           </div>
