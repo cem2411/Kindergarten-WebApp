@@ -6,6 +6,7 @@ import { Pattendance } from "./components/submenu/parent/Pattendance";
 import { Info } from './components/submenu/info/Info';
 import { Footer } from "./components/footer/Footer";
 import { Login } from "./components/login/Login";
+import { Register } from "./components/login/Register";
 
 class App extends Component {
   render() {
@@ -15,6 +16,10 @@ class App extends Component {
           <header>
             <Navigation />
             <Login/>
+            <br/>
+            <br/>
+            <br/>
+            <Register/>
           </header>
           <Switch>
             <Route path="/Eattendance" component={Eattendance} />
