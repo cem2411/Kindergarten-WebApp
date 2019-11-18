@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 // import Logp from "..//..";
+import "./style.scss";
 
 export class Login extends Component {
   constructor(props) {
@@ -8,19 +9,16 @@ export class Login extends Component {
 
   render() {
     return (
-      <div className="login">
+      <div className="login" >
         <form id="login__form">
-
           <div className="login__header">Login</div>
 
           <div className="loging__content">
-           
             {/*  <div className="login__content__image">
               <img src={Logo} />
             </div> */}
 
             <div className="login__content__form">
-              
               <div className="login__content__form-group">
                 <label htmlFor="username">Username: </label>
                 <input
@@ -38,15 +36,12 @@ export class Login extends Component {
                   placeholder="Passwort eingeben..."
                 />
               </div>
-
             </div>
-
           </div>
 
           <div className="login__footer">
             <button className="login__footer__button">Login</button>
           </div>
-
         </form>
       </div>
     );

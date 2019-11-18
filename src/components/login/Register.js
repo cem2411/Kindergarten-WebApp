@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 // import Logp from "..//..";
+import "./style.scss";
 
 export class Register extends Component {
   constructor(props) {
@@ -8,12 +9,11 @@ export class Register extends Component {
 
   render() {
     return (
-      <div className="register">
+      <div className="register" >
         <form id="register__form">
           <div className="register__header">Registrierung</div>
 
-          <div className="register__content">
-            {/*  <div className="login__content__image">
+       {/*  <div className="login__content__image">
               <img src={Logo} />
             </div> */}
 
@@ -114,7 +114,7 @@ export class Register extends Component {
 
             </div>
 
-          </div>
+          
 
           <div className="register__footer">
             <button className="register__footer__button">Registrieren</button>

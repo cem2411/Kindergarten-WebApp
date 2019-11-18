@@ -8,6 +8,7 @@ import { Footer } from "./components/footer/Footer";
 import { Login } from "./components/login/Login";
 import { Register } from "./components/login/Register";
 
+
 class App extends Component {
   render() {
     return (
