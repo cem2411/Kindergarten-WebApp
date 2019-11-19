@@ -2,14 +2,14 @@ import React, { Component } from "react";
 // import Logp from "..//..";
 import "./style.scss";
 
-export class Register extends Component {
+class Register extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return (
-      <div className="register" >
+      <div className="register" ref={this.props.containerRef} >
         <form id="register__form">
           <div className="register__header">Registrierung</div>
 
@@ -124,3 +124,5 @@ export class Register extends Component {
     );
   }
 }
+
+export default Register;
