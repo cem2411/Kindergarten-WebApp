@@ -1,37 +1,32 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Navigation } from "./components/navbar/Navigation";
-import { Eattendance } from "./components/submenu/educator/Eattendance";
-import { Pattendance } from "./components/submenu/parent/Pattendance";
+import { Eattendance } from "./components/submenu/absence/educator/Eattendance";
+import { Pattendance } from "./components/submenu/absence/parent/Pattendance";
 import { Info } from "./components/submenu/info/Info";
 import { Footer } from "./components/footer/Footer";
 import { Login } from "./components/login/Login";
-import Register from "./components/login/Register";
-import Test from './test/test';
 
-//import LogReg_Connector from "./components/login/connector/LogReg_Connector";
-
+import "./style.scss";
+import { AddChild } from "./components/submenu/addChild/AddChild";
 
 class App extends Component {
-  
   render() {
-    
     return (
       <BrowserRouter>
-        <div className="container">
+        <div className="main-container">
           <header>
             <Navigation />
           </header>
-          {/* <LogReg_Connector/> */}
-          <Login></Login>
-          
 
           <Switch>
-          <Route path="/test" component={Test} />
             <Route path="/Eattendance" component={Eattendance} />
             <Route path="/Pattendance" component={Pattendance} />
             <Route path="/Info" component={Info} />
+            <Route path="/Login" component={Login} />
+            <Route path="/AddChild" component={AddChild} />
           </Switch>
+
           <footer>
             <Footer />
           </footer>
@@ -39,14 +34,6 @@ class App extends Component {
       </BrowserRouter>
     );
   }
-  
-
-
-
-
-  
 }
-
-
 
 export default App;

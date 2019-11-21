@@ -1,5 +1,28 @@
-.hello{
-    color: green; 
-    background-color: aqua;   
-}
+.MyNavbar {
+  background-color: #ff3c2e;
+  position: absolute !important;
+  width: 100 !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+  line-height: 3rem;
 
+  font-size: 1.5rem;
+
+  a {
+    color: #edebeb !important;
+  }
+
+  a:hover {
+    color: #adadad !important;
+  }
+
+  &__link {
+    margin-right: 5rem !important;
+    font-size: 1.6rem;
+  }
+
+  &__brand {
+    font-size: 2rem !important;
+  }
+}

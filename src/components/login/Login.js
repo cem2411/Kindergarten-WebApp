@@ -4,9 +4,6 @@ import axios from "axios";
 import "./style.scss";
 
 export class Login extends Component {
-  constructor(props) {
-    super(props);
-  }
   submitHandler(event) {
     event.preventDefault();
     console.log(event);
@@ -68,7 +65,9 @@ export class Login extends Component {
           </div>
 
           <div className="login__footer">
-            <button className="login__footer__button" id="button">Login</button>
+            <button className="login__footer__button" id="button">
+              Login
+            </button>
           </div>
         </form>
       </div>
