@@ -4,12 +4,28 @@ import "./style.scss";
 
 export class AddChild extends Component {
   state = {
+    users: [],
     email: "",
     password: "",
     firstNameKid: "",
     secondNameKid: "",
     group: ""
   };
+
+  componentDidMount() {
+    axios
+      .get("/rest/children")
+      .then(response => {
+        this.setState({
+          users: response.data
+        });
+
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
 
   dataSendHandler = event => {
     const email = this.state.email;
@@ -36,6 +52,13 @@ export class AddChild extends Component {
   };
 
   render() {
+    const users = this.state.users.map(user => (
+      <div key={user._id}>
+        <span>Email: {user.email}</span>
+        <span>Passwort: {user.password}</span>
+      </div>
+    ));
+
     return (
       <div className="register" ref={this.props.containerRef}>
         <br></br>
@@ -120,6 +143,8 @@ export class AddChild extends Component {
             </button>
           </div>
         </form>
+
+        <div>{users}</div>
       </div>
     );
   }
