@@ -29,7 +29,9 @@ export class LoginForm extends Component {
     return (
       <div className="login">
         <form id="login__form">
-          <div className="login__header">Login</div>
+          <div className="login__header">
+            <span>Login</span>
+          </div>
 
           <div className="loging__content">
             <div className="login__content__image">
@@ -38,7 +40,9 @@ export class LoginForm extends Component {
 
             <div className="login__content__form">
               <div className="login__content__form-group">
-                <label htmlFor="username">Email: </label>
+                <label htmlFor="username">
+                  <span>Email: </span>
+                </label>
                 <input
                   type="email"
                   name="username"
@@ -51,7 +55,9 @@ export class LoginForm extends Component {
               </div>
 
               <div className="login__content__form-group">
-                <label htmlFor="password">Passwort: </label>
+                <label htmlFor="password">
+                  <span>Passwort: </span>
+                </label>
                 <input
                   type="password"
                   name="password"

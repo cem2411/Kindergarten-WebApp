@@ -26,7 +26,7 @@ class App extends Component {
               <Route path="/Pattendance" component={Pattendance} />
               <Route path="/Info" component={Info} />
               <Route path="/Login" component={LoginForm} />
-              <Route path="/AddChild" component={RegisterForm} />
+              <Route exact path="/AddChild" component={RegisterForm} />
               <Route path="/ListChild" component={ListChildren} />
             </Switch>
           </div>

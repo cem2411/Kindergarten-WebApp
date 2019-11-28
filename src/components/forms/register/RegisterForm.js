@@ -9,17 +9,26 @@ export default class RegisterForm extends Component {
     password: "",
     firstNameKid: "",
     secondNameKid: "",
-    group: ""
+    group: "A"
   };
 
+  resetState = () => {
+    this.setState({
+      users: [],
+      email: "",
+      password: "",
+      firstNameKid: "",
+      secondNameKid: "",
+      group: "A"
+    });
+  };
   componentDidMount() {
     axios
-      .get("/rest/children")
+      .get("/children")
       .then(response => {
         this.setState({
           users: response.data
         });
-
         console.log(response.data);
       })
       .catch(error => {
@@ -28,23 +37,24 @@ export default class RegisterForm extends Component {
   }
 
   dataSendHandler = event => {
-    const email = this.state.email;
-    const password = this.state.password;
+    event.preventDefault();
     const firstNameKid = this.state.firstNameKid;
     const secondNameKid = this.state.secondNameKid;
     const group = this.state.group;
+    const email = this.state.email;
+    const password = this.state.password;
 
     axios
-      .post("/rest/children", {
-        firstNameKid: firstNameKid,
+      .post("/children", {
         email: email,
+        password: password,
+        firstNameKid: firstNameKid,
         secondNameKid: secondNameKid,
-        group: group,
-        password: password
+        group: group
       })
-
-      .then(response => {
-        console.log(response.data);
+      .then(result => {
+        console.log(result);
+        this.resetState();
       })
       .catch(error => {
         console.log(error);
@@ -65,8 +75,10 @@ export default class RegisterForm extends Component {
         <br></br>
         <br></br>
 
-        <form id="register__form">
-          <div className="register__header">Eltern Registrierung</div>
+        <form onSubmit={this.dataSendHandler} id="register__form">
+          <div className="register__header">
+            <span>Eltern Registrierung</span>
+          </div>
 
           {/*  <div className="login__content__image">
               <img src={Logo} />
@@ -74,11 +86,14 @@ export default class RegisterForm extends Component {
 
           <div className="register__content__form">
             <div className="register__content__form-group">
-              <label htmlFor="email">Email: </label>
+              <label htmlFor="email">
+                <span>Email: </span>
+              </label>
               <input
                 type="email"
                 name="email"
                 placeholder="Email eingeben..."
+                value={this.state.email}
                 onChange={event => {
                   this.setState({ email: event.target.value });
                 }}
@@ -86,10 +101,13 @@ export default class RegisterForm extends Component {
             </div>
 
             <div className="register__content__form-group">
-              <label htmlFor="password">Passwort: </label>
+              <label htmlFor="password">
+                <span>Passwort: </span>
+              </label>
               <input
                 type="password"
                 name="password"
+                value={this.state.password}
                 placeholder="Passwort eingeben..."
                 onChange={event => {
                   this.setState({ password: event.target.value });
@@ -98,11 +116,14 @@ export default class RegisterForm extends Component {
             </div>
 
             <div className="register__content__form-group">
-              <label htmlFor="firstNameKid">Kind Vorname: </label>
+              <label htmlFor="firstNameKid">
+                <span>Kind Vorname: </span>
+              </label>
               <input
                 type="text"
                 name="firstNameKid"
                 placeholder="Vorname des Kinds eingeben..."
+                value={this.state.firstNameKid}
                 onChange={event => {
                   this.setState({ firstNameKid: event.target.value });
                 }}
@@ -110,11 +131,14 @@ export default class RegisterForm extends Component {
             </div>
 
             <div className="register__content__form-group">
-              <label htmlFor="secondNameKid">Kind Nachname: </label>
+              <label htmlFor="secondNameKid">
+                <span>Kind Nachname: </span>
+              </label>
               <input
                 type="text"
                 name="secondNameKid"
                 placeholder="Nachname des Kinds eingeben..."
+                value={this.state.secondNameKid}
                 onChange={event => {
                   this.setState({ secondNameKid: event.target.value });
                 }}
@@ -122,27 +146,26 @@ export default class RegisterForm extends Component {
             </div>
 
             <div className="register__content__form-group">
-              <label htmlFor="group">Kindergartengruppe: </label>
+              <label htmlFor="group">
+                <span>Kindergartengruppe: </span>
+              </label>
               <select
+                id="bla"
                 name="kindergagrouprdengroup"
                 form="register__form"
+                value={this.state.group}
                 onChange={event => {
                   this.setState({ group: event.target.value });
                 }}
               >
-                <option value="A" defaultValue="A">
-                  A
-                </option>
+                <option value="A">A</option>
                 <option value="B">B</option>
               </select>
             </div>
           </div>
 
           <div className="register__footer">
-            <button
-              className="register__footer__button"
-              onClick={this.dataSendHandler}
-            >
+            <button className="register__footer__button" type="submit">
               Registrieren
             </button>
           </div>
