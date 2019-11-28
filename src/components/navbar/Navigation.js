@@ -9,7 +9,7 @@ export class Navigation extends Component {
     return (
       <Navbar className="MyNavbar" collapseOnSelect expand="lg" variant="light">
         <Navbar.Brand className="MyNavbar__brand" href="/">
-          <img src={logo} alt="Logo" />
+          <img src={logo} alt="kiga2go" height="115" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

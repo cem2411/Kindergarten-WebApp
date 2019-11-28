@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "../restdb/GlobalAxiosSettings";
 // import Logp from "..//..";
 import "./style.scss";
+import logo from "../../img/logo/logo.png";
 
 export class Login extends Component {
   state = {
@@ -32,9 +33,9 @@ export class Login extends Component {
           <div className="login__header">Login</div>
 
           <div className="loging__content">
-            {/*  <div className="login__content__image">
-              <img src={Logo} />
-            </div> */}
+            <div className="login__content__image">
+              <img src={logo} href="kiga2go" height="150" />
+            </div>
 
             <div className="login__content__form">
               <div className="login__content__form-group">
