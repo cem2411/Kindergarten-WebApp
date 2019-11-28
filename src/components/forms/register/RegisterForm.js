@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import axios from "../../restdb/GlobalAxiosSettings";
+import axios from "../../../database/GlobalAxiosSettings";
 import "./style.scss";
 
-export default class AddChild extends Component {
+export default class RegisterForm extends Component {
   state = {
     users: [],
     email: "",

@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import axios from "../restdb/GlobalAxiosSettings";
-// import Logp from "..//..";
+import axios from "../../../database/GlobalAxiosSettings";
+import logo from "../../../img/logo/logo.png";
 import "./style.scss";
-import logo from "../../img/logo/logo.png";
 
-export class Login extends Component {
+export class LoginForm extends Component {
   state = {
     users: [],
     email: "",
