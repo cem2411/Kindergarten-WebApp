@@ -1,39 +1,34 @@
 import React, { Component } from "react";
-import axios from "axios";
+import axios from "../restdb/GlobalAxiosSettings";
 // import Logp from "..//..";
 import "./style.scss";
 
 export class Login extends Component {
-  submitHandler(event) {
-    event.preventDefault();
-    console.log(event);
+  state = {
+    users: [],
+    email: "",
+    password: ""
+  };
 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    const query =
-      '?q={"username": "' + username + '", "password": "' + password + '"}';
+  componentDidMount() {
     axios
-      .post("https://kiga2go-359d.restdb.io/rest/login" + query, {
-        headers: {
-          "content-type": "application/json",
-          "x-apikey": "5dd38bc54658275ac9dc1b94",
-          "cache-control": "no-cache"
-        }
-      })
+      .get("/rest/login")
       .then(response => {
-        console.log(response);
-        if (response.data.length > 0) {
-          alert("login erfolgreich");
-        } else {
-          alert("benutzername oder passwort falsch");
-        }
+        this.setState({
+          users: response.data
+        });
+
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.log(error);
       });
   }
 
   render() {
     return (
-      <div className="login" ref={this.props.containerRef}>
-        <form id="login__form" onSubmit={this.submitHandler}>
+      <div className="login">
+        <form id="login__form">
           <div className="login__header">Login</div>
 
           <div className="loging__content">
@@ -49,6 +44,9 @@ export class Login extends Component {
                   name="username"
                   placeholder="Email eingeben..."
                   id="username"
+                  onChange={event => {
+                    this.setState({ username: event.target.value });
+                  }}
                 />
               </div>
 
@@ -59,6 +57,9 @@ export class Login extends Component {
                   name="password"
                   placeholder="Passwort eingeben..."
                   id="password"
+                  onChange={event => {
+                    this.setState({ password: event.target.value });
+                  }}
                 />
               </div>
             </div>

@@ -8,7 +8,7 @@ import { Footer } from "./components/footer/Footer";
 import { Login } from "./components/login/Login";
 
 import "./style.scss";
-import { AddChild } from "./components/submenu/addChild/AddChild";
+import AddChild from "./components/submenu/addChild/AddChild";
 import { ListChild } from "./components/submenu/listChild/ListChild";
 
 class App extends Component {
@@ -26,7 +26,7 @@ class App extends Component {
             <Route path="/Info" component={Info} />
             <Route path="/Login" component={Login} />
             <Route path="/AddChild" component={AddChild} />
-            <Route path="ListChild" component={ListChild} />
+            <Route path="/ListChild" component={ListChild} />
           </Switch>
 
           <footer>

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "../../restdb/GlobalAxiosSettings";
 import "./style.scss";
 
-export class AddChild extends Component {
+export default class AddChild extends Component {
   state = {
     users: [],
     email: "",
@@ -60,7 +60,7 @@ export class AddChild extends Component {
     ));
 
     return (
-      <div className="register" ref={this.props.containerRef}>
+      <div className="register">
         <br></br>
         <br></br>
         <br></br>
@@ -123,13 +123,17 @@ export class AddChild extends Component {
 
             <div className="register__content__form-group">
               <label htmlFor="group">Kindergartengruppe: </label>
-              <select name="kindergagrouprdengroup" form="register__form">
-                <option value="A">A</option>
-                <option value="B">B</option>
-                onChange=
-                {event => {
+              <select
+                name="kindergagrouprdengroup"
+                form="register__form"
+                onChange={event => {
                   this.setState({ group: event.target.value });
                 }}
+              >
+                <option value="A" defaultValue="A">
+                  A
+                </option>
+                <option value="B">B</option>
               </select>
             </div>
           </div>

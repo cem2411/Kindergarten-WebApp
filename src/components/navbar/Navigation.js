@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import "./style.scss";
+import logo from "../../img/logo/logo.png";
 
 export class Navigation extends Component {
   render() {
     return (
       <Navbar className="MyNavbar" collapseOnSelect expand="lg" variant="light">
         <Navbar.Brand className="MyNavbar__brand" href="/">
-          kiga2go
+          <img src={logo} alt="Logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
