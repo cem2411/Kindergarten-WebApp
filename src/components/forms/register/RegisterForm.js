@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "../../../database/GlobalAxiosSettings";
+import axios from "../../../services/GlobalAxiosSettings";
 import "./style.scss";
 
 export default class RegisterForm extends Component {

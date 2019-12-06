@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "../../../database/GlobalAxiosSettings";
+import axios from "../../../services/GlobalAxiosSettings";
 import logo from "../../../img/logo/logo.png";
 import "./style.scss";
 
