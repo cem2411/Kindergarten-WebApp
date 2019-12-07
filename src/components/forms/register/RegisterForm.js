@@ -4,7 +4,6 @@ import "./style.scss";
 
 export default class RegisterForm extends Component {
   state = {
-    users: [],
     email: "",
     password: "",
     firstNameKid: "",
@@ -14,7 +13,6 @@ export default class RegisterForm extends Component {
 
   resetState = () => {
     this.setState({
-      users: [],
       email: "",
       password: "",
       firstNameKid: "",
@@ -22,19 +20,6 @@ export default class RegisterForm extends Component {
       group: "A"
     });
   };
-  componentDidMount() {
-    axios
-      .get("/children")
-      .then(response => {
-        this.setState({
-          users: response.data
-        });
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
 
   dataSendHandler = event => {
     event.preventDefault();
@@ -62,19 +47,8 @@ export default class RegisterForm extends Component {
   };
 
   render() {
-    const users = this.state.users.map(user => (
-      <div key={user._id}>
-        <span>Email: {user.email}</span>
-        <span>Passwort: {user.password}</span>
-      </div>
-    ));
-
     return (
       <div className="register">
-        <br></br>
-        <br></br>
-        <br></br>
-
         <form onSubmit={this.dataSendHandler} id="register__form">
           <div className="register__header">
             <span>Eltern Registrierung</span>
@@ -170,8 +144,6 @@ export default class RegisterForm extends Component {
             </button>
           </div>
         </form>
-
-        <div>{users}</div>
       </div>
     );
   }
