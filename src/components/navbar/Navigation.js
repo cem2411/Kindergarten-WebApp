@@ -14,20 +14,20 @@ export class Navigation extends Component {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav>
-            <LinkContainer className="MyNavbar__link" to="/Eattendance">
-              <Nav.Link>Employee Attendence</Nav.Link>
+            <LinkContainer className="MyNavbar__link" to="/AddChild">
+              <Nav.Link>A-Konto hinzufügen</Nav.Link>
             </LinkContainer>
-            <LinkContainer className="MyNavbar__link" to="/Pattendance">
-              <Nav.Link>Parents Attendence</Nav.Link>
+            <LinkContainer className="MyNavbar__link" to="/ListChildren">
+              <Nav.Link>A-Kinderliste</Nav.Link>
+            </LinkContainer>
+            <LinkContainer className="MyNavbar__link" to="/Absence">
+              <Nav.Link>A-Krankmeldung</Nav.Link>
+            </LinkContainer>
+            <LinkContainer className="MyNavbar__link" to="/ListAbsence">
+              <Nav.Link>P-Krankmeldung</Nav.Link>
             </LinkContainer>
             <LinkContainer className="MyNavbar__link" to="/Info">
               <Nav.Link>Info</Nav.Link>
-            </LinkContainer>
-            <LinkContainer className="MyNavbar__link" to="/Login">
-              <Nav.Link>Login</Nav.Link>
-            </LinkContainer>
-            <LinkContainer className="MyNavbar__link" to="/AddChild">
-              <Nav.Link>Eltern hinzufügen</Nav.Link>
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>

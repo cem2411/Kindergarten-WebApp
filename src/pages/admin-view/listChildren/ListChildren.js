@@ -46,7 +46,7 @@ export class ListChildren extends Component {
     ));
 
     return (
-      <div>
+      <div className="main-container">
         <head>
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -59,7 +59,7 @@ export class ListChildren extends Component {
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
         </head>
 
-        <div class="container">
+        <div class="table">
           <h2>Liste aller Kinder</h2>
 
           <table class="table table-bordered table-hover">
