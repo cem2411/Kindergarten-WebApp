@@ -23,9 +23,9 @@ class App extends Component {
 
           <div className="page-content">
             <Switch>
-              <Route path="/Pattendance" component={Pattendance} />
-              <Route path="/Info" component={Info} />
               <Route path="/Login" component={LoginForm} />
+              <Route path="/Pattendance" component={ListChildren} />
+              <Route path="/Info" component={Info} />
               <Route exact path="/AddChild" component={RegisterForm} />
               <Route path="/ListChild" component={ListChildren} />
             </Switch>
