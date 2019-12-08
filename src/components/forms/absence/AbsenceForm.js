@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "../../../services/GlobalAxiosSettings";
 import "./style.scss";
+import { Aabsence } from "../../../pages/admin-view/listAbsence/Aabsence";
 
 export default class AbsenceForm extends Component {
   state = {
@@ -78,6 +79,9 @@ export default class AbsenceForm extends Component {
             </button>
           </div>
         </form>
+        <br></br>
+        <br></br>
+        <Aabsence />
       </div>
     );
   }
