@@ -12,6 +12,7 @@ import { LoginForm } from "./components/forms/login/LoginForm";
 import RegisterForm from "./components/forms/register/RegisterForm";
 import { ListChildren } from "./pages/admin-view/listChildren/ListChildren";
 import { Aabsence } from "./pages/admin-view/listAbsence/Aabsence";
+import AbsenceForm from "./components/forms/absence/AbsenceForm";
 
 class App extends Component {
   render() {
@@ -27,7 +28,7 @@ class App extends Component {
               <Route path="/Login" component={LoginForm} />
               <Route path="/ListChildren" component={ListChildren} />
               <Route path="/Info" component={Info} />
-              <Route path="/Absence" component={Pabsence} />
+              <Route path="/Absence" component={AbsenceForm} />
               <Route path="/ListAbsence" component={Aabsence} />
               <Route exact path="/AddChild" component={RegisterForm} />
             </Switch>
