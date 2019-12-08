@@ -11,7 +11,7 @@ import { Footer } from "./components/footer/Footer";
 import { LoginForm } from "./components/forms/login/LoginForm";
 import RegisterForm from "./components/forms/register/RegisterForm";
 import { ListChildren } from "./pages/admin-view/listChildren/ListChildren";
-import { Aabsence } from "./pages/admin-view/absence/Aabsence";
+import { Aabsence } from "./pages/admin-view/listAbsence/Aabsence";
 
 class App extends Component {
   render() {
