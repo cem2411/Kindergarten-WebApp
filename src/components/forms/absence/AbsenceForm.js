@@ -45,12 +45,12 @@ export default class AbsenceForm extends Component {
 
           <div className="absence__content__form">
             <div className="absence__content__form-group">
-              <label htmlFor="email">
+              <label htmlFor="dateStart">
                 <span>Von: </span>
               </label>
               <input
                 type="date"
-                name="date"
+                name="dateStart"
                 value={this.state.dateStart}
                 onChange={event => {
                   this.setState({ dateStart: event.target.value });
@@ -59,12 +59,12 @@ export default class AbsenceForm extends Component {
             </div>
 
             <div className="absence__content__form-group">
-              <label htmlFor="email">
-                <span>Bist: </span>
+              <label htmlFor="dateEnd">
+                <span>Bis: </span>
               </label>
               <input
                 type="date"
-                name="date"
+                name="dateEnd"
                 value={this.state.dateEnd}
                 onChange={event => {
                   this.setState({ dateEnd: event.target.value });
