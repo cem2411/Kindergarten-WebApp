@@ -5,8 +5,8 @@ import { Aabsence } from "../../../pages/admin-view/listAbsence/Aabsence";
 
 export default class AbsenceForm extends Component {
   state = {
-    dateStart: "",
-    dateEnd: ""
+    dateStart: null,
+    dateEnd: null
   };
 
   resetState = () => {

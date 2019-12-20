@@ -23,7 +23,7 @@ export class ListChildren extends Component {
   };
   componentDidMount() {
     axios
-      .get("/children")
+      .get("/accounts")
       .then(response => {
         this.setState({
           users: response.data

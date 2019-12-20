@@ -3,9 +3,10 @@ import axios from "../../../services/GlobalAxiosSettings";
 import logo from "../../../img/logo/logo.png";
 import "./style.scss";
 
+import { login } from "../../../services/userService";
+
 export class LoginForm extends Component {
   state = {
-    users: [],
     email: "",
     password: ""
   };
@@ -49,7 +50,7 @@ export class LoginForm extends Component {
                   placeholder="Email eingeben..."
                   id="username"
                   onChange={event => {
-                    this.setState({ username: event.target.value });
+                    this.setState({ email: event.target.value });
                   }}
                 />
               </div>
@@ -71,12 +72,15 @@ export class LoginForm extends Component {
             </div>
           </div>
 
-          <div className="login__footer">
-            <button className="login__footer__button" id="button">
-              Login
-            </button>
-          </div>
+          <div className="login__footer"></div>
         </form>
+        <button
+          className="login__footer__button"
+          id="button"
+          onClick={() => login(this.state.email, this.state.password)}
+        >
+          Login
+        </button>
       </div>
     );
   }

@@ -30,7 +30,7 @@ export default class RegisterForm extends Component {
     const password = this.state.password;
 
     axios
-      .post("/children", {
+      .post("/accounts", {
         email: email,
         password: password,
         firstNameKid: firstNameKid,
