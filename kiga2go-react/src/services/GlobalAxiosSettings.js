@@ -11,4 +11,9 @@ let instance = axios.create({
   }
 });
 
+instance.interceptors.request.use(request => {
+  console.log('Starting Request', request)
+  return request
+})
+
 export default instance;

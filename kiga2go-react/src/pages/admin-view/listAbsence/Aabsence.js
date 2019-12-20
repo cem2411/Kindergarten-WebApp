@@ -1,41 +1,19 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "../../../services/GlobalAxiosSettings";
 
-export class Aabsence extends Component {
-  state = {
-    dates: [],
-    dateStart: "",
-    dateEnd: ""
-  };
-
-  resetState = () => {
-    this.setState({
-      dates: [],
-      dateStart: "",
-      dateEnd: ""
-    });
-  };
-  componentDidMount() {
+export default function Aabsence() {
+  const [absences, setAbsences] = useState([]);
+  useEffect(() => {
     axios
       .get("/absence")
       .then(response => {
-        this.setState({
-          dates: response.data
-        });
         console.log(response.data);
+        setAbsences(response.data);
       })
       .catch(error => {
         console.log(error);
       });
-  }
-
-  render() {
-    const dates = this.state.dates.map(date => (
-      <tr key={date._id}>
-        <td>{date.dateStart}</td>
-        <td>{date.dateEnd}</td>
-      </tr>
-    ));
+  }, []);
 
     return (
       <div className="main-container">
@@ -57,15 +35,29 @@ export class Aabsence extends Component {
           <table class="table table-bordered table-hover">
             <thead>
               <tr>
+                <th>Vorname</th>
+                <th>Nachname</th>
+                <th>Gruppe</th>
                 <th>Von</th>
                 <th>Bis</th>
               </tr>
             </thead>
-
-            <tbody>{dates}</tbody>
+            <tbody>
+              {
+                absences.map(absence => (
+                  <tr key={absence._id}>
+                    <td>{absence.child[0].firstNameKid}</td>
+                    <td>{absence.child[0].secondNameKid}</td>
+                    <td>{absence.child[0].group}</td>
+                    <td>{absence.dateStart}</td>
+                    <td>{absence.dateEnd}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
           </table>
         </div>
       </div>
     );
   }
-}
+

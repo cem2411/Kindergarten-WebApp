@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "../../../services/GlobalAxiosSettings";
 
-export class ListChildren extends Component {
+export default class ListChildren extends Component {
   state = {
     users: [],
     email: "",
