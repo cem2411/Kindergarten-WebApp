@@ -6,9 +6,21 @@ import "./style.scss";
 export default function LoginForm({ setUser }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState();
 
-  const validateUser = async () => {
-    setUser(await login({ email, password }));
+  const validateUser = () => {
+    login({ email, password })
+      .then(response => {
+        if (response.data.status == 200) {
+          setErrorMessage();
+          setUser(response.data.payload);
+        } else {
+          setErrorMessage(response.data.payload);
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      })
   };
 
   return (
@@ -49,6 +61,7 @@ export default function LoginForm({ setUser }) {
                 onChange={event => setPassword(event.target.value)}
               />
             </div>
+{ errorMessage ? <p>{errorMessage}</p> : <div /> }
           </div>
         </div>
         <div className="login__footer"></div>
@@ -62,4 +75,5 @@ export default function LoginForm({ setUser }) {
       </button>
     </div>
   );
+
 }

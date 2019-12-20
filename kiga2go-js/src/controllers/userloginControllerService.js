@@ -10,17 +10,14 @@ module.exports.loginUser = async function loginUser(req, res, next) {
   if (response) {
     if (response.data[0]) {
       if (response.data[0].password === req.password.value) {
-        res.send(response.data[0]);
+        res.send({payload: response.data[0], status:200});
       } else {
-        res.status(401);
-        res.send(`Wrong password for user ${req.email.value}!`);
+        res.send({payload: `Wrong password for user ${req.email.value}!`, status:401});
       }
     } else {
-      res.status(404);
-      res.send(`User ${req.email.value} not found!`);
+      res.send({payload: `User ${req.email.value} not found!`, status:404});
     }
   } else {
-    res.status(301);
-    res.send(`Connection error while accessing database`);
+    res.send({payload: `Connection error while accessing database`, status:301});
   }
 };
