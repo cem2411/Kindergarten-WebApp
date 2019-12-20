@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import logo from "../../../img/logo/logo.png";
+import { login } from "../../../services/userService";
 import "./style.scss";
 
-export default function LoginForm({ onSubmit }) {
+export default function LoginForm({ setUser }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const validateUser = async () => {
+    setUser(await login({ email, password }));
+  };
 
   return (
     <div className="login">
@@ -51,7 +56,7 @@ export default function LoginForm({ onSubmit }) {
       <button
         className="login__footer__button"
         id="button"
-        onClick={() => onSubmit({ email, password })}
+        onClick={validateUser}
       >
         Login
       </button>
