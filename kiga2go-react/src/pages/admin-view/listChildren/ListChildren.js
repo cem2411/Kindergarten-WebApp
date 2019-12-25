@@ -8,7 +8,9 @@ export default class ListChildren extends Component {
     password: "",
     firstNameKid: "",
     secondNameKid: "",
-    group: "A"
+    group: "A",
+    search: "",
+    searchList: []
   };
 
   resetState = () => {
@@ -21,12 +23,14 @@ export default class ListChildren extends Component {
       group: "A"
     });
   };
+
   componentDidMount() {
     axios
       .get("/accounts")
       .then(response => {
         this.setState({
-          users: response.data
+          users: response.data,
+          searchList: response.data
         });
         console.log(response.data);
       })
@@ -35,6 +39,26 @@ export default class ListChildren extends Component {
       });
   }
 
+  shouldComponentUpdate()
+  componentDidUpdate(prevState){
+
+    if(prevState.searchList !== this.state.searchList){
+      let filteredUsers = this.state.users.filter(user => {
+        return user.firstNameKid.toLowerCase().includes(this.state.search.toLowerCase())
+      })
+      this.setState({searchList: filteredUsers})
+
+    }
+   
+    
+  }
+
+  InputChangeHandler = (e) => {
+    console.log("value changed to:", e.target.value)
+    this.setState({
+      search: e.target.value
+    })
+  }
   render() {
     const users = this.state.users.map(user => (
       <tr key={user._id}>
@@ -47,19 +71,8 @@ export default class ListChildren extends Component {
 
     return (
       <div className="main-container">
-        <head>
-          <meta charset="utf-8" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          />
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-          <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-        </head>
-
-        <div class="table">
+        <input type="text" value={this.state.search} onChange={this.InputChangeHandler} />
+        <div className="table">
           <h2>Liste aller Kinder</h2>
 
           <table class="table table-bordered table-hover">
