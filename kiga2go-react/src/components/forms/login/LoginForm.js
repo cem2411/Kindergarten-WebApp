@@ -11,7 +11,7 @@ export default function LoginForm({ setUser }) {
   const validateUser = () => {
     login({ email, password })
       .then(response => {
-        if (response.data.status == 200) {
+        if (response.data.status === 200) {
           setErrorMessage();
           setUser(response.data.payload);
         } else {
@@ -20,7 +20,7 @@ export default function LoginForm({ setUser }) {
       })
       .catch(error => {
         console.log(error);
-      })
+      });
   };
 
   return (
@@ -61,7 +61,7 @@ export default function LoginForm({ setUser }) {
                 onChange={event => setPassword(event.target.value)}
               />
             </div>
-{ errorMessage ? <p>{errorMessage}</p> : <div /> }
+            {errorMessage ? <p>{errorMessage}</p> : <div />}
           </div>
         </div>
         <div className="login__footer"></div>
@@ -75,5 +75,4 @@ export default function LoginForm({ setUser }) {
       </button>
     </div>
   );
-
 }
