@@ -1,57 +1,42 @@
 import React, { useState } from "react";
-import Datepicker from "./Datepicker";
+import DatePicker from "./DatePicker";
 import "./style.scss";
 
-export default function AbsenceForm({ onSubmit }) {
-  const [start, setStart] = useState("");
-  const [end, setEnd] = useState("");
+export default function AbsenceForm({ absences, onSubmit }) {
+  const [start, setStart] = useState();
+  const [end, setEnd] = useState();
 
-  const submit = () => {
+  const onDatesChange = ({ startDate, endDate }) => {
+    setStart(startDate);
+    setEnd(endDate);
+  };
+
+  const submit = event => {
+    event.preventDefault();
     onSubmit(start, end);
-    setStart("");
-    setEnd("");
+    setStart();
+    setEnd();
   };
 
   return (
     <div className="absence">
-      <form id="absence__form">
+      <form id="absence__form" onSubmit={submit}>
         <div className="absence__header">
           <span>Krankmeldung</span>
         </div>
         <div className="absence__content__form">
-          <div className="absence__content__form-group">
-            <Datepicker />
-            <label htmlFor="dateStart">
-              <span>Von: </span>
-            </label>
-            <input
-              type="date"
-              name="dateStart"
-              value={start}
-              onChange={event => setStart(event.target.value)}
-            />
-          </div>
-          <div className="absence__content__form-group">
-            <label htmlFor="dateEnd">
-              <span>Bis: </span>
-            </label>
-            <input
-              type="date"
-              name="dateEnd"
-              value={end}
-              onChange={event => setEnd(event.target.value)}
-            />
-          </div>
+          <DatePicker
+            startDate={start}
+            endDate={end}
+            onDatesChange={onDatesChange}
+            absences={absences}
+          />
         </div>
         <div className="register__footer"></div>
+        <button type="submit" className="register__footer__button">
+          Abschicken
+        </button>
       </form>
-      <button
-        type="submit"
-        className="register__footer__button"
-        onClick={submit}
-      >
-        Abschicken
-      </button>
     </div>
   );
 }

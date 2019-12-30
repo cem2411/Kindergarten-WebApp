@@ -1,29 +1,44 @@
 import React, { useState } from "react";
-import "react-dates/initialize";
-import "react-dates/lib/css/_datepicker.css";
+import moment from "moment";
 import { DateRangePicker } from "react-dates";
 
-export default function Datepicker() {
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
-  const [focused, setFocused] = useState();
+export default function DatePicker({
+  startDate,
+  endDate,
+  onDatesChange,
+  absences,
+  editAbsence
+}) {
+  const [focusedInput, setFocusedInput] = useState();
+  const isDayBlocked = day => {
+    let isBlocked = false;
+    for (let absence of absences) {
+      if (!editAbsence || editAbsence !== absence) {
+        isBlocked =
+          isBlocked ||
+          moment(day).isBetween(
+            moment(absence.dateStart).subtract(1, "d"),
+            moment(absence.dateEnd)
+          );
+      }
+    }
+    return isBlocked;
+  };
 
   return (
-    <div>
-      <DateRangePicker
-        startDate={startDate}
-        startDateId="start_date_id"
-        endDate={endDate}
-        endDateId="end_date_id"
-        onDatesChange={({ start, end }) => {
-          console.log("setting new dates...");
-          setStartDate(start);
-          setEndDate(end);
-          console.log("setting new dates...OK");
-        }}
-        focusedInput={focused}
-        onFocusChange={focusedInput => setFocused(focusedInput)}
-      />
-    </div>
+    <DateRangePicker
+      startDate={startDate}
+      startDateId="start_date"
+      endDate={endDate}
+      endDateId="end_date"
+      minimumNights={0}
+      //   firstDayOfWeek={1}
+      isOutsideRange={() => false}
+      onDatesChange={onDatesChange}
+      isDayBlocked={isDayBlocked}
+      focusedInput={focusedInput}
+      onFocusChange={focused => setFocusedInput(focused)}
+      displayFormat={() => "DD.MM.YYYY"}
+    />
   );
 }

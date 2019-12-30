@@ -8,7 +8,8 @@ export default function LoginForm({ setUser }) {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState();
 
-  const validateUser = () => {
+  const validateUser = event => {
+    event.preventDefault();
     login({ email, password })
       .then(response => {
         if (response.data.status === 200) {
@@ -25,16 +26,11 @@ export default function LoginForm({ setUser }) {
 
   return (
     <div className="login">
-      <form id="login__form">
-        <div className="login__header">
-          <span>Login</span>
-        </div>
-
+      <form id="login__form" onSubmit={validateUser}>
         <div className="loging__content">
           <div className="login__content__image">
             <img src={logo} href="kiga2go" height="150" />
           </div>
-
           <div className="login__content__form">
             <div className="login__content__form-group">
               <label htmlFor="email">
@@ -48,7 +44,6 @@ export default function LoginForm({ setUser }) {
                 onChange={event => setEmail(event.target.value)}
               />
             </div>
-
             <div className="login__content__form-group">
               <label htmlFor="password">
                 <span>Passwort: </span>
@@ -65,14 +60,10 @@ export default function LoginForm({ setUser }) {
           </div>
         </div>
         <div className="login__footer"></div>
+        <button className="login__footer__button" id="button">
+          Login
+        </button>
       </form>
-      <button
-        className="login__footer__button"
-        id="button"
-        onClick={validateUser}
-      >
-        Login
-      </button>
     </div>
   );
 }
