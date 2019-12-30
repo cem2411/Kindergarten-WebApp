@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Datepicker from "./Datepicker";
 import "./style.scss";
 
 export default function AbsenceForm({ onSubmit }) {
@@ -19,6 +20,7 @@ export default function AbsenceForm({ onSubmit }) {
         </div>
         <div className="absence__content__form">
           <div className="absence__content__form-group">
+            <Datepicker />
             <label htmlFor="dateStart">
               <span>Von: </span>
             </label>
