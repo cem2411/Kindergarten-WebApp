@@ -4,18 +4,13 @@
   flex-direction: column;
   align-items: center;
 
-  &__header {
-    text-align: center;
-
-    span {
-      font-size: 3.5rem;
-    }
+  span {
+    font-size: 3.5rem;
   }
 
   &__content {
     flex-direction: column;
     &__image {
-      margin-top: 1.5rem;
       margin-bottom: 2rem;
     }
     &__form {
@@ -63,6 +58,7 @@
       font-size: 25px;
       padding: 5px 20px;
       border: 0;
+      margin-left: 5.75rem;
       background-color: #3498db;
       color: #fff;
       border-radius: 3px;
