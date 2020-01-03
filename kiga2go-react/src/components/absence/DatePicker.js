@@ -1,15 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import moment from "moment";
 import { DateRangePicker } from "react-dates";
 
 export default function DatePicker({
+  absences,
   startDate,
   endDate,
   onDatesChange,
-  absences,
   editAbsence
 }) {
   const [focusedInput, setFocusedInput] = useState();
+
   const isDayBlocked = day => {
     let isBlocked = false;
     for (let absence of absences) {

@@ -26,10 +26,10 @@ export default function AbsenceForm({ absences, onSubmit }) {
         </div>
         <div className="absence__content__form">
           <DatePicker
+            absences={absences}
             startDate={start}
             endDate={end}
             onDatesChange={onDatesChange}
-            absences={absences}
           />
         </div>
         <div className="register__footer"></div>

@@ -5,7 +5,7 @@ import UserContext from "../../context/user-context";
 import logo from "../../img/logo/logo.png";
 import "./style.scss";
 
-export default function Navigation() {
+export default function Navigation({ onLogout }) {
   const user = useContext(UserContext);
 
   return (
@@ -41,6 +41,11 @@ export default function Navigation() {
               </LinkContainer>
             </Nav>
           )}
+          <LinkContainer to="/">
+            <Nav.Link>
+              <button onClick={onLogout}>Logout</button>
+            </Nav.Link>
+          </LinkContainer>
         </Navbar.Collapse>
       ) : (
         <div />

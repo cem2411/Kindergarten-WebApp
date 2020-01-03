@@ -2,11 +2,7 @@ import React from "react";
 import moment from "moment";
 import AbsenceEntry from "./AbsenceEntry";
 
-export default function AbsenceList({
-  absences,
-  onAbsenceUpdate,
-  onAbsenceDelete
-}) {
+export default function AbsenceList({ absences, onUpdate, onDelete }) {
   return (
     <div class="table">
       <h2>Liste der Abwesenheiten</h2>
@@ -22,8 +18,9 @@ export default function AbsenceList({
           {absences.map(absence => (
             <AbsenceEntry
               absence={absence}
-              onUpdate={onAbsenceUpdate}
-              onDelete={onAbsenceDelete}
+              absences={absences}
+              onUpdate={onUpdate}
+              onDelete={onDelete}
             />
           ))}
         </tbody>

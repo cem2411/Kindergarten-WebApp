@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 import axios from "../../../services/GlobalAxiosSettings";
+import Loading from "../../../components/loading/Loading";
 
 const DATE_FORMAT = "DD.MM.YYYY";
 
 export default function Aabsence() {
-  const [absences, setAbsences] = useState([]);
+  const [absences, setAbsences] = useState();
   useEffect(() => {
     axios
       .get("/absence")
@@ -13,12 +14,10 @@ export default function Aabsence() {
         console.log("absence data:", response.data);
         setAbsences(response.data);
       })
-      .catch(error => {
-        console.log(error);
-      });
+      .catch(error => console.log(error));
   }, []);
 
-  return (
+  return absences ? (
     <div className="main-container">
       <div className="table">
         <h2>Liste der Abwesenheiten</h2>
@@ -56,5 +55,7 @@ export default function Aabsence() {
         </table>
       </div>
     </div>
+  ) : (
+    <Loading />
   );
 }

@@ -4,8 +4,8 @@ import background from "./img/background/background.jpg";
 import Navigation from "./components/navbar/Navigation";
 import { Info } from "./pages/common-view/info/Info";
 import { Footer } from "./components/footer/Footer";
-import LoginForm from "./components/forms/login/LoginForm";
-import RegisterForm from "./components/forms/register/RegisterForm";
+import LoginForm from "./components/login/LoginForm";
+import RegisterForm from "./components/register/RegisterForm";
 import ListChildren from "./pages/admin-view/listChildren/ListChildren";
 import Aabsence from "./pages/admin-view/listAbsence/Aabsence";
 import Pabsence from "./pages/parent-view/absence/Pabsence";
@@ -15,14 +15,13 @@ import "./style.scss";
 
 export default function App() {
   const [user, setUser] = useState();
-  
 
   return (
     <UserProvider value={user}>
       <BrowserRouter>
         <div className="main-container">
           <header>
-            <Navigation />
+            <Navigation onLogout={() => setUser()} />
           </header>
 
           <div className="page-content">

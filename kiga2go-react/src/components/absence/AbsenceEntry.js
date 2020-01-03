@@ -4,7 +4,12 @@ import DatePicker from "./DatePicker";
 
 const DATE_FORMAT = "DD.MM.YYYY";
 
-export default function AbsenceEntry({ absence, onUpdate, onDelete }) {
+export default function AbsenceEntry({
+  absence,
+  absences,
+  onUpdate,
+  onDelete
+}) {
   const [isEditMode, setEditMode] = useState(false);
   const [start, setStart] = useState(moment(absence.dateStart));
   const [end, setEnd] = useState(moment(absence.dateEnd));
@@ -25,9 +30,11 @@ export default function AbsenceEntry({ absence, onUpdate, onDelete }) {
     <tr>
       <td>
         <DatePicker
+          absences={absences}
           startDate={start}
           endDate={end}
           onDatesChange={onDatesChange}
+          editAbsence={absence}
         />
       </td>
       <td>

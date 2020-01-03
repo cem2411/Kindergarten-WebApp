@@ -32,29 +32,37 @@ paths:
             application/json:
               schema:
                 type: string
-        "301":
-          description: infastructure problem
-          content:
-            application/json:
-              schema:
-                type: string
-        "401":
-          description: Invalid username/password supplied
-          content:
-            application/json:
-              schema:
-                type: string
-        "404":
-          description: user does not exist
-          content:
-            application/json:
-              schema:
-                type: string
-  /user/logout:
-    get:
-      summary: Logs out current logged in user session
-      operationId: logoutUser
+  /user/register:
+    post:
+      summary: register user into the system
+      operationId: registerUser
+      requestBody:
+        description: user daten
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
       responses:
-        default:
+        "200":
           description: successful operation
-          content: {}
+          content:
+            application/json:
+              schema:
+                type: string
+
+components:
+  schemas:
+    User:
+      title: User
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+        firstNameKid:
+          type: string
+        secondNameKid:
+          type: string
+        group:
+          type: string

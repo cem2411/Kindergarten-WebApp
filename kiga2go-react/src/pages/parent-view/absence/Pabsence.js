@@ -1,15 +1,16 @@
 import React, { useContext, useState, useEffect } from "react";
 import UserContext from "../../../context/user-context";
-import AbsenceForm from "../../../components/forms/absence/AbsenceForm";
-import AbsenceList from "../../../components/forms/absence/AbsenceList";
+import AbsenceForm from "../../../components/absence/AbsenceForm";
+import AbsenceList from "../../../components/absence/AbsenceList";
 
 import axios from "../../../services/GlobalAxiosSettings";
+import Loading from "../../../components/loading/Loading";
 
 export default function Pabsence() {
   const user = useContext(UserContext);
-  const [absences, setAbsences] = useState([]);
+  const [absences, setAbsences] = useState();
   const fetchAbsences = () => {
-    setAbsences([]);
+    setAbsences();
     axios
       .get("/absence", {
         params: {
@@ -48,14 +49,16 @@ export default function Pabsence() {
       .catch(error => console.log(error));
   };
 
-  return (
+  return absences ? (
     <div>
-      <AbsenceForm onSubmit={submit} absences={absences} />
+      <AbsenceForm absences={absences} onSubmit={submit} />
       <AbsenceList
         absences={absences}
-        onAbsenceUpdate={updateAbsence}
-        onAbsenceDelete={deleteAbsence}
+        onUpdate={updateAbsence}
+        onDelete={deleteAbsence}
       />
     </div>
+  ) : (
+    <Loading />
   );
 }

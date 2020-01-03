@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../../services/GlobalAxiosSettings";
+import Loading from "../../../components/loading/Loading";
 
-const ListChildren = props => {
-  const [users, setUsers] = useState([]);
+export default function ListChildren() {
+  const [users, setUsers] = useState();
   const [search, setSearch] = useState("");
   const [searchList, setSearchList] = useState([]);
   const [selected, setSelected] = useState("all");
@@ -22,7 +23,9 @@ const ListChildren = props => {
 
   /** Runs if SearchWord changes */
   useEffect(() => {
-    setSearchList(checkSelected());
+    if (users) {
+      setSearchList(checkSelected());
+    }
   }, [search]);
 
   /** Checks for the selected Filter Categorie */
@@ -142,7 +145,7 @@ const ListChildren = props => {
     </tr>
   ));
 
-  return (
+  return users ? (
     <div className="main-container">
       <input type="text" value={search} onChange={InputChangeHandler} />
       <label>Suchen Nach:</label>
@@ -169,7 +172,7 @@ const ListChildren = props => {
         </table>
       </div>
     </div>
+  ) : (
+    <Loading />
   );
-};
-
-export default ListChildren;
+}
