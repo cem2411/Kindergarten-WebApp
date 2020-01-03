@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
+import moment from "moment";
 import axios from "../../../services/GlobalAxiosSettings";
+
+const DATE_FORMAT = "DD.MM.YYYY";
 
 export default function Aabsence() {
   const [absences, setAbsences] = useState([]);
@@ -39,8 +42,8 @@ export default function Aabsence() {
                     <td>{absence.child[0].firstNameKid}</td>
                     <td>{absence.child[0].secondNameKid}</td>
                     <td>{absence.child[0].group}</td>
-                    <td>{absence.dateStart}</td>
-                    <td>{absence.dateEnd}</td>
+                    <td>{moment(absence.dateStart).format(DATE_FORMAT)}</td>
+                    <td>{moment(absence.dateEnd).format(DATE_FORMAT)}</td>
                   </tr>
                 );
               })

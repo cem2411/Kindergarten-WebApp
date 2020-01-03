@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import logo from "../../img/logo/logo.png";
 import UserContext from "../../context/user-context";
+import logo from "../../img/logo/logo.png";
 import "./style.scss";
 
 export default function Navigation() {
@@ -19,19 +19,22 @@ export default function Navigation() {
           {user.role === "admin" ? (
             <Nav>
               <LinkContainer className="MyNavbar__link" to="/AddChild">
-                <Nav.Link>A-Konto hinzufügen</Nav.Link>
+                <Nav.Link>Konto hinzufügen</Nav.Link>
               </LinkContainer>
               <LinkContainer className="MyNavbar__link" to="/ListChildren">
-                <Nav.Link>A-Kinderliste</Nav.Link>
+                <Nav.Link>Kinderliste</Nav.Link>
               </LinkContainer>
               <LinkContainer className="MyNavbar__link" to="/ListAbsence">
-                <Nav.Link>A-Krankmeldung</Nav.Link>
+                <Nav.Link>Krankmeldung</Nav.Link>
+              </LinkContainer>
+              <LinkContainer className="MyNavbar__link" to="/Info">
+                <Nav.Link>Info</Nav.Link>
               </LinkContainer>
             </Nav>
           ) : (
             <Nav>
               <LinkContainer className="MyNavbar__link" to="/Absence">
-                <Nav.Link>P-Krankmeldung</Nav.Link>
+                <Nav.Link>Krankmeldung</Nav.Link>
               </LinkContainer>
               <LinkContainer className="MyNavbar__link" to="/Info">
                 <Nav.Link>Info</Nav.Link>
