@@ -1,0 +1,47 @@
+.list {
+  &__header {
+    h2 {
+      font-size: 3rem;
+      text-align: center;
+    }
+  }
+
+  &__searchbar {
+    text-align: right;
+    margin-right: 4rem;
+    margin-bottom: 2rem;
+
+    label {
+      font-size: 1.5rem;
+    }
+
+    input {
+      margin-top: 6px;
+      min-width: 18em;
+      height: 37px;
+      padding: 0px 10px;
+      font-size: 16px;
+      background-color: #f3f3f3;
+      border: 0;
+      border-radius: 4px;
+      margin-bottom: 31px;
+      transition: all 250ms ease-in-out;
+    }
+    select {
+      margin-top: 6px;
+      min-width: 18em;
+      height: 37px;
+      padding: 0px 10px;
+      font-size: 16px;
+      background-color: #f3f3f3;
+      border: 0;
+      border-radius: 4px;
+      margin-bottom: 31px;
+      transition: all 250ms ease-in-out;
+    }
+  }
+}
+
+.table {
+  font-size: 1.5rem;
+}

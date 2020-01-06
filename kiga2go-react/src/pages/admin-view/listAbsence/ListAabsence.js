@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import moment from "moment";
 import axios from "../../../services/GlobalAxiosSettings";
 import Loading from "../../../components/loading/Loading";
+import "./style.scss";
 
 const DATE_FORMAT = "DD.MM.YYYY";
 

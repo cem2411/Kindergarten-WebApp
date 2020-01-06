@@ -6,8 +6,10 @@ export default function Loading() {
   return (
     <div className="loading">
       <ReactLoading
-        type={"spokes"}
-        color={"c#c#c#"}
+        className="loading__object"
+        type={"spin"}
+        delay={1}
+        color={"#3498db"}
         height={"50px"}
         width={"50px"}
       />

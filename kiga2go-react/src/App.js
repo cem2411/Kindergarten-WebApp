@@ -7,7 +7,7 @@ import { Footer } from "./components/footer/Footer";
 import LoginForm from "./components/login/LoginForm";
 import RegisterForm from "./components/register/RegisterForm";
 import ListChildren from "./pages/admin-view/listChildren/ListChildren";
-import Aabsence from "./pages/admin-view/listAbsence/Aabsence";
+import ListAabsence from "./pages/admin-view/listAbsence/ListAabsence";
 import Pabsence from "./pages/parent-view/absence/Pabsence";
 import Home from "./pages/home-view/Home";
 import { UserProvider } from "./context/user-context";
@@ -36,7 +36,7 @@ export default function App() {
                   <div />
                 )}
                 {user.role === "admin" ? (
-                  <Route path="/ListAbsence" component={Aabsence} />
+                  <Route path="/ListAbsence" component={ListAabsence} />
                 ) : (
                   <div />
                 )}

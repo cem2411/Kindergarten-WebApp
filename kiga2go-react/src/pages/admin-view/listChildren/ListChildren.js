@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../../services/GlobalAxiosSettings";
 import Loading from "../../../components/loading/Loading";
+import "./style.scss";
 
 export default function ListChildren() {
   const [users, setUsers] = useState();
@@ -133,13 +134,13 @@ export default function ListChildren() {
       <td>{user.secondNameKid}</td>
       <td>{user.group}</td>
       <td>{user.email}</td>
-      <td style={{ border: "none", textAlign: "center" }}>
+      <td style={{ textAlign: "center" }}>
         <button
           value={user._id}
           onClick={deleteButtonClickedHandler}
-          className="btn btn-danger"
+          className="btn btn-danger delete-button"
         >
-          X
+          Löschen
         </button>
       </td>
     </tr>
@@ -147,17 +148,35 @@ export default function ListChildren() {
 
   return users ? (
     <div className="main-container">
-      <input type="text" value={search} onChange={InputChangeHandler} />
-      <label>Suchen Nach:</label>
-      <select onChange={selectChangeHandler}>
-        <option value="all">Alles</option>
-        <option value="groups">Gruppen</option>
-        <option value="names">Namen</option>
-        <option value="emails">Emails</option>
-      </select>
-      <div className="table">
-        <h2>Liste aller Kinder</h2>
+      <div className="list">
+        <div className="list__header">
+          <h2 id="test">Liste aller Kinder</h2>
+        </div>
 
+        <div className="list__searchbar">
+          <div>
+            <label for="searchbar">Suchen: </label>
+            <input
+              id="searchbar"
+              type="text"
+              value={search}
+              onChange={InputChangeHandler}
+            />
+          </div>
+
+          <div>
+            <label for="searchbar-options">Nach: </label>
+            <select id="searchbar-options" onChange={selectChangeHandler}>
+              <option value="all">Alles</option>
+              <option value="groups">Gruppen</option>
+              <option value="names">Namen</option>
+              <option value="emails">Emails</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div className="table">
         <table className="table table-bordered table-hover">
           <thead>
             <tr>
@@ -165,6 +184,7 @@ export default function ListChildren() {
               <th>Nachname</th>
               <th>Gruppe</th>
               <th>Email</th>
+              <th></th>
             </tr>
           </thead>
 

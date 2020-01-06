@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./style.scss";
 
 export class Info extends Component {
   render() {
