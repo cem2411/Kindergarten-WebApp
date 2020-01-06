@@ -4,8 +4,9 @@ const crypter = require("../security/crypter");
 
 module.exports.loginUser = async function loginUser(req, res, next) {
   let response = await axios.get("/accounts", {
+    // await - wait till axios get is finished
     params: {
-      q: { email: req.email.value }
+      q: { email: req.email.value } // q key for email
     }
   });
   if (response) {

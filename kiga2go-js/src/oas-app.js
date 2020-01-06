@@ -14,6 +14,8 @@ let options_object = {
   router: true,
   validator: true
 };
+
+// starts server
 oasTools.configure(options_object);
 oasTools.initialize(oasDoc, app, function() {
   http.createServer(app).listen(serverPort, function() {
