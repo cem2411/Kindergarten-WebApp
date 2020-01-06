@@ -49,17 +49,14 @@ export default function AbsenceEntry({
       <td>{end.format(DATE_FORMAT)}</td>
       <td>
         <button
-          className="btn btn-outline-danger"
-          onClick={() => onDelete(absence)}
-        >
-          Delete
-        </button>
-        <button
           value={absence._id}
-          className="btn btn-outline-primary"
+          className="btn btn-warning"
           onClick={() => setEditMode(true)}
         >
-          Edit
+          Editieren
+        </button>
+        <button className="btn btn-danger" onClick={() => onDelete(absence)}>
+          Löschen
         </button>
       </td>
     </tr>

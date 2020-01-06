@@ -2,9 +2,9 @@ import React, { useContext, useState, useEffect } from "react";
 import UserContext from "../../../context/user-context";
 import AbsenceForm from "../../../components/absence/AbsenceForm";
 import AbsenceList from "../../../components/absence/AbsenceList";
-
 import axios from "../../../services/GlobalAxiosSettings";
 import Loading from "../../../components/loading/Loading";
+import "./style.scss";
 
 export default function Pabsence() {
   const user = useContext(UserContext);
@@ -50,7 +50,7 @@ export default function Pabsence() {
   };
 
   return absences ? (
-    <div>
+    <div className="main-container">
       <AbsenceForm absences={absences} onSubmit={submit} />
       <AbsenceList
         absences={absences}
