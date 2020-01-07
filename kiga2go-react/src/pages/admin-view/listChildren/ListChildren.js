@@ -4,7 +4,7 @@ import Loading from "../../../components/loading/Loading";
 import "./style.scss";
 
 export default function ListChildren() {
-  const [users, setUsers] = useState();
+  const [users, setUsers] = useState([]);
   const [search, setSearch] = useState("");
   const [searchList, setSearchList] = useState([]);
   const [selected, setSelected] = useState("all");
@@ -27,7 +27,7 @@ export default function ListChildren() {
     if (users) {
       setSearchList(checkSelected());
     }
-  }, [search]);
+  }, [search, selected]);
 
   /** Checks for the selected Filter Categorie */
   const checkSelected = () => {
@@ -62,7 +62,7 @@ export default function ListChildren() {
         break;
       case "groups":
         filteredUsers = users.filter(user => {
-          return user.group.toLowerCase().includes(search.toLowerCase());
+          return user.group.toLowerCase() === search.toLowerCase();
         });
         break;
     }
@@ -128,23 +128,42 @@ export default function ListChildren() {
         console.log(err);
       });
   };
-  let userRender = searchList.map(user => (
-    <tr key={user._id}>
-      <td>{user.firstNameKid}</td>
-      <td>{user.secondNameKid}</td>
-      <td>{user.group}</td>
-      <td>{user.email}</td>
-      <td style={{ textAlign: "center" }}>
-        <button
-          value={user._id}
-          onClick={deleteButtonClickedHandler}
-          className="btn btn-danger delete-button"
-        >
-          Löschen
-        </button>
-      </td>
-    </tr>
-  ));
+  let userRender =
+    searchList.length > 0
+      ? searchList.map(user => (
+          <tr key={user._id}>
+            <td>{user.firstNameKid}</td>
+            <td>{user.secondNameKid}</td>
+            <td>{user.group}</td>
+            <td>{user.email}</td>
+            <td style={{ textAlign: "center" }}>
+              <button
+                value={user._id}
+                onClick={deleteButtonClickedHandler}
+                className="btn btn-danger delete-button"
+              >
+                Löschen
+              </button>
+            </td>
+          </tr>
+        ))
+      : users.map(user => (
+          <tr key={user._id}>
+            <td>{user.firstNameKid}</td>
+            <td>{user.secondNameKid}</td>
+            <td>{user.group}</td>
+            <td>{user.email}</td>
+            <td style={{ textAlign: "center" }}>
+              <button
+                value={user._id}
+                onClick={deleteButtonClickedHandler}
+                className="btn btn-danger delete-button"
+              >
+                Löschen
+              </button>
+            </td>
+          </tr>
+        ));
 
   return users ? (
     <div className="main-container">

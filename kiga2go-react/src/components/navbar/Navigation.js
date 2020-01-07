@@ -41,7 +41,7 @@ export default function Navigation({ onLogout }) {
               </LinkContainer>
             </Nav>
           )}
-          <LinkContainer to="/">
+          <LinkContainer className="logout" to="/">
             <Nav.Link>
               <button onClick={onLogout}>Logout</button>
             </Nav.Link>
