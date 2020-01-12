@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 import UserContext from "../../context/user-context";
 import logo from "../../img/logo/logo.png";
 import "./style.scss";
@@ -10,7 +11,7 @@ export default function Navigation({ onLogout }) {
 
   return (
     <Navbar className="MyNavbar" collapseOnSelect expand="lg" variant="light">
-      <Navbar.Brand className="MyNavbar__brand" href="/">
+      <Navbar.Brand as={Link} className="MyNavbar__brand" to="/">
         <img src={logo} alt="kiga2go" height="115" />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -18,6 +19,9 @@ export default function Navigation({ onLogout }) {
         <Navbar.Collapse id="responsive-navbar-nav">
           {user.role === "admin" ? (
             <Nav>
+              <LinkContainer className="MyNavbar__link" to="/dashboard">
+                <Nav.Link>Dashboard</Nav.Link>
+              </LinkContainer>
               <LinkContainer className="MyNavbar__link" to="/AddChild">
                 <Nav.Link>Konto hinzufügen</Nav.Link>
               </LinkContainer>
@@ -33,6 +37,9 @@ export default function Navigation({ onLogout }) {
             </Nav>
           ) : (
             <Nav>
+              <LinkContainer className="MyNavbar__link" to="/dashboard">
+                <Nav.Link>Dashboard</Nav.Link>
+              </LinkContainer>
               <LinkContainer className="MyNavbar__link" to="/Absence">
                 <Nav.Link>Krankmeldung</Nav.Link>
               </LinkContainer>

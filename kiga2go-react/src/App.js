@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import background from "./img/background/background.jpg";
 import Navigation from "./components/navbar/Navigation";
 import { Info } from "./pages/common-view/info/Info";
@@ -9,8 +9,9 @@ import RegisterForm from "./components/register/RegisterForm";
 import ListChildren from "./pages/admin-view/listChildren/ListChildren";
 import ListAabsence from "./pages/admin-view/listAbsence/ListAabsence";
 import Pabsence from "./pages/parent-view/absence/Pabsence";
-import Home from "./pages/home-view/Home";
 import { UserProvider } from "./context/user-context";
+import Dashboard from "./pages/dashboard/Dashboard";
+
 import "./style.scss";
 
 export default function App() {
@@ -27,23 +28,17 @@ export default function App() {
           <div className="page-content">
             {user ? (
               <Switch>
-                <Route exact path="/" component={Home} />
+                <Redirect exact from="/" to="/dashboard" />
+                <Route exact path="/" />
                 <Route path="/Info" component={Info} />
                 <Route path="/Absence" component={Pabsence} />
-                {user.role === "admin" ? (
-                  <Route path="/ListChildren" component={ListChildren} />
-                ) : (
-                  <div />
-                )}
-                {user.role === "admin" ? (
-                  <Route path="/ListAbsence" component={ListAabsence} />
-                ) : (
-                  <div />
-                )}
-                {user.role === "admin" ? (
-                  <Route exact path="/AddChild" component={RegisterForm} />
-                ) : (
-                  <div />
+                <Route path="/dashboard" component={Dashboard} />
+                {user.role === "admin" && (
+                  <>
+                    <Route path="/ListChildren" component={ListChildren} />
+                    <Route path="/ListAbsence" component={ListAabsence} />
+                    <Route exact path="/AddChild" component={RegisterForm} />
+                  </>
                 )}
               </Switch>
             ) : (
