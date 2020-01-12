@@ -12,9 +12,11 @@ export default function LoginForm({ setUser }) {
     event.preventDefault();
     login({ email, password })
       .then(response => {
+        console.log(response.data.status);
         if (response.data.status === 200) {
           setErrorMessage();
           setUser(response.data.payload);
+          console.log(response.data.payload);
         } else {
           setErrorMessage(response.data.payload);
         }
