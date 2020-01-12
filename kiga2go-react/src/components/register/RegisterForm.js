@@ -48,6 +48,7 @@ export default function RegisterForm({}) {
             <input
               type="email"
               name="email"
+              id="email"
               placeholder="Email eingeben..."
               value={email}
               onChange={event => setEmail(event.target.value)}
@@ -61,6 +62,7 @@ export default function RegisterForm({}) {
             <input
               type="password"
               name="password"
+              id="password"
               placeholder="Passwort eingeben..."
               value={password}
               onChange={event => setPassword(event.target.value)}
@@ -74,6 +76,7 @@ export default function RegisterForm({}) {
             <input
               type="text"
               name="firstNameKid"
+              id="firstNameKid"
               placeholder="Vorname des Kinds eingeben..."
               value={firstNameKid}
               onChange={event => setFirstNameKid(event.target.value)}
@@ -87,6 +90,7 @@ export default function RegisterForm({}) {
             <input
               type="text"
               name="secondNameKid"
+              id="secondNameKid"
               placeholder="Nachname des Kinds eingeben..."
               value={secondNameKid}
               onChange={event => setSecondNameKid(event.target.value)}
