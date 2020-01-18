@@ -13,12 +13,9 @@ const AdminDashboard = ({ user, absences }) => {
     const fetchAbsences = async () => {
       const result = await axios.get("/absence");
       setOngoingAbsences(
-        result.data.filter(absence => {
-          return (
-            moment(absence.dateStart.slice(0, 10)) <= moment() &&
-            moment() <= moment(absence.dateEnd.slice(0, 10))
-          );
-        })
+        result.data.filter(
+          absence => moment(absence.dateStart).diff(moment(), "days") === 0
+        )
       );
       setIsLoading(false);
     };
@@ -30,7 +27,7 @@ const AdminDashboard = ({ user, absences }) => {
       <h1>
         Hello {user.firstNameKid} {user.secondNameKid}
       </h1>
-      <h2 style={{ textAlign: "left" }}>Aktuelle Krankmeldungen</h2>
+      <h2 style={{ textAlign: "left" }}>Heutige Krankmeldungen</h2>
 
       {!isLoading ? (
         ongoingAbsences ? (
@@ -60,9 +57,7 @@ const AdminDashboard = ({ user, absences }) => {
               </tbody>
             </table>
           ) : (
-            <span style={{ fontSize: "2rem" }}>
-              Keine aktuellen Krankmeldungen
-            </span>
+            <span style={{ fontSize: "2rem" }}>Heute keine Krankmeldungen</span>
           )
         ) : (
           <Spinner animation="border" variant="danger" />

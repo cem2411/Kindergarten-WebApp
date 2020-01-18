@@ -34,7 +34,6 @@ export default function DatePicker({
       endDateId="end_date"
       minimumNights={0}
       //   firstDayOfWeek={1}
-      isOutsideRange={() => false}
       onDatesChange={onDatesChange}
       isDayBlocked={isDayBlocked}
       focusedInput={focusedInput}
