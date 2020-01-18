@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 import axios from "../../../services/GlobalAxiosSettings";
-import Loading from "../../../components/loading/Loading";
+import { Spinner } from "react-bootstrap";
 import "./style.scss";
 
 const DATE_FORMAT = "DD.MM.YYYY";
@@ -120,6 +120,6 @@ export default function Aabsence() {
       </div>
     </div>
   ) : (
-    <Loading />
+    <Spinner animation="grow" variant="primary" />
   );
 }

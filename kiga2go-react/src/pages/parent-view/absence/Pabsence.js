@@ -3,7 +3,7 @@ import UserContext from "../../../context/user-context";
 import AbsenceForm from "../../../components/absence/AbsenceForm";
 import AbsenceList from "../../../components/absence/AbsenceList";
 import axios from "../../../services/GlobalAxiosSettings";
-import Loading from "../../../components/loading/Loading";
+import { Spinner } from "react-bootstrap";
 import "./style.scss";
 
 export default function Pabsence() {
@@ -59,6 +59,6 @@ export default function Pabsence() {
       />
     </div>
   ) : (
-    <Loading />
+    <Spinner animation="grow" variant="primary" />
   );
 }

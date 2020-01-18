@@ -60,10 +60,10 @@ const AdminDashboard = ({ user, absences }) => {
             <span style={{ fontSize: "2rem" }}>Heute keine Krankmeldungen</span>
           )
         ) : (
-          <Spinner animation="border" variant="danger" />
+          <Spinner animation="grow" variant="primary" />
         )
       ) : (
-        <Spinner animation="border" />
+        <Spinner animation="grow" variant="primary" />
       )}
     </div>
   );

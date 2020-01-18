@@ -55,7 +55,7 @@ const ParentDashboard = () => {
       </Button>
     </div>
   ) : (
-    <Spinner animation="border" />
+    <Spinner animation="grow" variant="primary" />
   );
 };
 export default ParentDashboard;

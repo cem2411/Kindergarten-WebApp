@@ -22,16 +22,16 @@ export default function Navigation({ onLogout }) {
               <LinkContainer className="MyNavbar__link" to="/dashboard">
                 <Nav.Link>Dashboard</Nav.Link>
               </LinkContainer>
-              <LinkContainer className="MyNavbar__link" to="/AddChild">
+              <LinkContainer className="MyNavbar__link" to="/addChild">
                 <Nav.Link>Konto hinzufügen</Nav.Link>
               </LinkContainer>
-              <LinkContainer className="MyNavbar__link" to="/ListChildren">
+              <LinkContainer className="MyNavbar__link" to="/listChildren">
                 <Nav.Link>Kinderliste</Nav.Link>
               </LinkContainer>
-              <LinkContainer className="MyNavbar__link" to="/ListAbsence">
+              <LinkContainer className="MyNavbar__link" to="/listAbsence">
                 <Nav.Link>Krankmeldung</Nav.Link>
               </LinkContainer>
-              <LinkContainer className="MyNavbar__link" to="/Info">
+              <LinkContainer className="MyNavbar__link" to="/info">
                 <Nav.Link>Info</Nav.Link>
               </LinkContainer>
             </Nav>
@@ -40,10 +40,10 @@ export default function Navigation({ onLogout }) {
               <LinkContainer className="MyNavbar__link" to="/dashboard">
                 <Nav.Link>Dashboard</Nav.Link>
               </LinkContainer>
-              <LinkContainer className="MyNavbar__link" to="/Absence">
+              <LinkContainer className="MyNavbar__link" to="/absence">
                 <Nav.Link>Krankmeldung</Nav.Link>
               </LinkContainer>
-              <LinkContainer className="MyNavbar__link" to="/Info">
+              <LinkContainer className="MyNavbar__link" to="/info">
                 <Nav.Link>Info</Nav.Link>
               </LinkContainer>
             </Nav>
