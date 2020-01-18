@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../../services/GlobalAxiosSettings";
-import Loading from "../../../components/loading/Loading";
+import {Spinner} from "react-bootstrap";
 import "./style.scss";
 
 export default function ListChildren() {
@@ -212,6 +212,6 @@ export default function ListChildren() {
       </div>
     </div>
   ) : (
-    <Loading />
+    <Spinner animation="grow" variant="primary" />
   );
 }
