@@ -11,8 +11,13 @@ export default function Navigation({ onLogout }) {
 
   return (
     <Navbar className="MyNavbar" collapseOnSelect expand="lg" variant="light">
-      <Navbar.Brand as={Link} className="MyNavbar__brand" to="/">
-        <img src={logo} alt="kiga2go" height="115" />
+      <Navbar.Brand as={Link} to="/">
+        <img
+          className="MyNavbar__brand"
+          src={logo}
+          alt="kiga2go"
+          height="115"
+        />
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       {user ? (

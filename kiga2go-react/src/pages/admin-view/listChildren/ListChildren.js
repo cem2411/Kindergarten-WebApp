@@ -167,7 +167,7 @@ export default function ListChildren() {
 
         <div className="list__searchbar">
           <div>
-            <label for="searchbar">Suchen: </label>
+            <label htmlFor="searchbar">Suchen: </label>
             <input
               id="searchbar"
               type="text"
@@ -177,7 +177,7 @@ export default function ListChildren() {
           </div>
 
           <div>
-            <label for="searchbar-options">Nach: </label>
+            <label htmlFor="searchbar-options">Nach: </label>
             <select id="searchbar-options" onChange={selectChangeHandler}>
               <option value="all">Alles</option>
               <option value="groups">Gruppen</option>

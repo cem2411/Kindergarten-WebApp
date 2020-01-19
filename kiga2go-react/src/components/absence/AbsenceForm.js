@@ -13,7 +13,8 @@ export default function AbsenceForm({ absences, onSubmit }) {
       isValid =
         isValid &&
         !moment(bookedAbsence.dateStart).isBetween(
-          moment(startDate).subtract(1, "d"),
+          //  moment(startDate).subtract(1, "d"),
+          moment(startDate),
           moment(endDate)
         );
     }

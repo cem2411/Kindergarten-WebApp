@@ -1,5 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
-import Context from "../../context/user-context";
+import React, { useContext } from "react";
 import AdminDashboard from "./AdminDashboard/AdminDashboard";
 import ParentDashboard from "./ParentDashboard/ParentDashboard";
 import UserContext from "../../context/user-context";

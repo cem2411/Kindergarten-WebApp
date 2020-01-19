@@ -26,7 +26,7 @@ const ParentDashboard = () => {
         setOngoingAbsences(
           result.data.filter(absence => {
             return moment(Date.now()).isBetween(
-              moment(absence.dateStart).subtract(1, "d"),
+              moment(absence.dateStart),
               moment(absence.endDate)
             );
           })

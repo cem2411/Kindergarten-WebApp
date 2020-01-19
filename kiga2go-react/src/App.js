@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import background from "./img/background/background.jpg";
 import Navigation from "./components/navbar/Navigation";
 import { Info } from "./pages/common-view/info/Info";
 import { Footer } from "./components/footer/Footer";
-import LoginForm from "./components/login/LoginForm";
-import RegisterForm from "./components/register/RegisterForm";
+import Login from "./pages/common-view/login/Login";
+import Register from "./pages/admin-view/register/Register";
 import ListChildren from "./pages/admin-view/listChildren/ListChildren";
 import ListAabsence from "./pages/admin-view/listAbsence/ListAabsence";
 import Pabsence from "./pages/parent-view/absence/Pabsence";
@@ -37,12 +36,12 @@ export default function App() {
                   <>
                     <Route path="/ListChildren" component={ListChildren} />
                     <Route path="/ListAbsence" component={ListAabsence} />
-                    <Route exact path="/AddChild" component={RegisterForm} />
+                    <Route exact path="/AddChild" component={Register} />
                   </>
                 )}
               </Switch>
             ) : (
-              <LoginForm setUser={setUser} />
+              <Login setUser={setUser} />
             )}
           </div>
           <footer>

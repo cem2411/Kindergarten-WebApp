@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { register } from "../../services/userService";
+import { register } from "../../../services/userService";
 import "./style.scss";
 
-export default function RegisterForm({}) {
+export default function Register({}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [firstNameKid, setFirstNameKid] = useState("");

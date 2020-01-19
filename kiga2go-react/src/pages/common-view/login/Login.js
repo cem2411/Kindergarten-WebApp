@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import logo from "../../img/logo/logo.png";
-import { login } from "../../services/userService";
+import logo from "../../../img/logo/logo.png";
+import { login } from "../../../services/userService";
 import "./style.scss";
 
-export default function LoginForm({ setUser }) {
+export default function Login({ setUser }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState();
@@ -12,11 +12,9 @@ export default function LoginForm({ setUser }) {
     event.preventDefault();
     login({ email, password })
       .then(response => {
-        console.log(response.data.status);
         if (response.data.status === 200) {
           setErrorMessage();
           setUser(response.data.payload);
-          console.log(response.data.payload);
         } else {
           setErrorMessage(response.data.payload);
         }
