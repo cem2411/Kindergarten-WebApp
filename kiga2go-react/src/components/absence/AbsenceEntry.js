@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import moment from "moment";
+import swal from "sweetalert";
 import DatePicker from "./DatePicker";
 
 const DATE_FORMAT = "DD.MM.YYYY";
@@ -21,9 +22,28 @@ export default function AbsenceEntry({
     setEditMode(false);
   };
 
+  const validateBooking = ({ startDate, endDate }) => {
+    let isValid = true;
+    for (let bookedAbsence of absences) {
+      if (bookedAbsence !== absence) {
+        isValid =
+          isValid &&
+          !moment(bookedAbsence.dateStart).isBetween(
+            moment(startDate).subtract(1, "d"),
+            moment(endDate)
+          );
+      }
+    }
+    return isValid;
+  };
+
   const onDatesChange = ({ startDate, endDate }) => {
-    setStart(startDate);
-    setEnd(endDate);
+    if (validateBooking({ startDate, endDate })) {
+      setStart(startDate);
+      setEnd(endDate);
+    } else {
+      swal("Überbuchen einer anderen Krankmeldung ist nicht möglich!");
+    }
   };
 
   return isEditMode ? (

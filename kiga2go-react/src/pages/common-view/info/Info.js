@@ -6,7 +6,7 @@ export class Info extends Component {
     return (
       <div className="info">
         <p>
-          Hier kommt der Text rein welcher kurz erklärt was die App ist und wie
+          Hier wird der Text reinkommen welcher kurz erklärt was kiga2go ist und wie
           Eltern bzw. Pädagogen die App bedienen können.
         </p>
       </div>

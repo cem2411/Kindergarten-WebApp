@@ -12,8 +12,13 @@ let instance = axios.create({
 });
 
 instance.interceptors.request.use(request => {
-  console.log('Starting Request', request)
-  return request
-})
+  console.log("Starting Request", request);
+  return request;
+});
+
+instance.interceptors.response.use(request => {
+  console.log("recieved Response", request);
+  return request;
+});
 
 export default instance;

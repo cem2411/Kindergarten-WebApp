@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "../../../services/GlobalAxiosSettings";
-import {Spinner} from "react-bootstrap";
+import UserEntry from "./UserEntry";
+import { Spinner } from "react-bootstrap";
 import "./style.scss";
 
 export default function ListChildren() {
@@ -9,8 +10,7 @@ export default function ListChildren() {
   const [searchList, setSearchList] = useState([]);
   const [selected, setSelected] = useState("all");
 
-  /** Runs first render because of [] */
-  useEffect(() => {
+  const fetchUsers = () => {
     axios
       .get("/accounts")
       .then(response => {
@@ -20,7 +20,10 @@ export default function ListChildren() {
       .catch(error => {
         console.log(error);
       });
-  }, []);
+  };
+
+  /** Runs first render because of [] */
+  useEffect(fetchUsers, []);
 
   /** Runs if SearchWord changes */
   useEffect(() => {
@@ -78,7 +81,7 @@ export default function ListChildren() {
     setSelected(e.target.value);
   };
 
-  const deleteButtonClickedHandler = e => {
+  const deleteUser = e => {
     let filteredUserArray = users.filter(user => {
       return user._id !== e.target.value;
     });
@@ -128,41 +131,31 @@ export default function ListChildren() {
         console.log(err);
       });
   };
+  const saveUser = user => {
+    axios
+      .put("/accounts/" + user._id, user)
+      .then(() => fetchUsers())
+      .catch(error => {
+        console.log(error);
+      });
+  };
   let userRender =
     searchList.length > 0
       ? searchList.map(user => (
-          <tr key={user._id}>
-            <td>{user.firstNameKid}</td>
-            <td>{user.secondNameKid}</td>
-            <td>{user.group}</td>
-            <td>{user.email}</td>
-            <td style={{ textAlign: "center" }}>
-              <button
-                value={user._id}
-                onClick={deleteButtonClickedHandler}
-                className="btn btn-danger delete-button"
-              >
-                Löschen
-              </button>
-            </td>
-          </tr>
+          <UserEntry
+            key={user._id}
+            user={user}
+            onSave={saveUser}
+            onDelete={deleteUser}
+          />
         ))
       : users.map(user => (
-          <tr key={user._id}>
-            <td>{user.firstNameKid}</td>
-            <td>{user.secondNameKid}</td>
-            <td>{user.group}</td>
-            <td>{user.email}</td>
-            <td style={{ textAlign: "center" }}>
-              <button
-                value={user._id}
-                onClick={deleteButtonClickedHandler}
-                className="btn btn-danger delete-button"
-              >
-                Löschen
-              </button>
-            </td>
-          </tr>
+          <UserEntry
+            key={user._id}
+            user={user}
+            onSave={saveUser}
+            onDelete={deleteUser}
+          />
         ));
 
   return users ? (
