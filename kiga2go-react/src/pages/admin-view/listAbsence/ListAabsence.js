@@ -44,14 +44,20 @@ export default function Aabsence() {
         fertig = [...fertig].concat(
           absences.filter(
             absence =>
-              moment(absence.dateStart) <= moment() &&
-              moment() <= moment(absence.dateEnd)
+              (moment(absence.dateStart).diff(moment(), "days") === 0 ||
+                moment(absence.dateStart) < moment()) &&
+              (moment(absence.dateEnd).diff(moment(), "days") === 0 ||
+                moment() < moment(absence.dateEnd))
           )
         );
       }
       if (showFuture) {
         fertig = [...fertig].concat(
-          absences.filter(absence => moment() < moment(absence.dateStart))
+          absences.filter(
+            absence =>
+              moment() < moment(absence.dateStart) &&
+              moment(absence.dateStart).diff(moment(), "days") != 0
+          )
         );
       }
       setShowList(fertig);
