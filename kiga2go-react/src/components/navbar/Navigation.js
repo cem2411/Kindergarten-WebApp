@@ -55,7 +55,9 @@ export default function Navigation({ onLogout }) {
           )}
           <LinkContainer className="logout" to="/">
             <Nav.Link>
-              <button onClick={onLogout}>Logout</button>
+              <button className="btn btn-info btn-lg" onClick={onLogout}>
+                Logout
+              </button>
             </Nav.Link>
           </LinkContainer>
         </Navbar.Collapse>

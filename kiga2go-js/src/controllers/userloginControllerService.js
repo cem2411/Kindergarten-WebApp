@@ -1,4 +1,4 @@
-"use strict";
+("use strict");
 const axios = require("../services/GlobalAxiosSettings");
 const crypter = require("../security/crypter");
 
@@ -16,12 +16,15 @@ module.exports.loginUser = async function loginUser(req, res, next) {
         res.send({ payload: response.data[0], status: 200 });
       } else {
         res.send({
-          payload: `Wrong password for user ${req.email.value}!`,
+          payload: `Falsches Passwort für Benutzer ${req.email.value}!`,
           status: 401
         });
       }
     } else {
-      res.send({ payload: `User ${req.email.value} not found!`, status: 404 });
+      res.send({
+        payload: `Benutzer ${req.email.value} nicht gefunden!`,
+        status: 404
+      });
     }
   } else {
     res.send({

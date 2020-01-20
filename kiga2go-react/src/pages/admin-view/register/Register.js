@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { register } from "../../../services/userService";
+import swal from "sweetalert";
 import "./style.scss";
 
 export default function Register({}) {
@@ -27,11 +28,12 @@ export default function Register({}) {
       group
     })
       .then(response => {
-        alert(`Benutzer ${email} erfolgreich angelegt!`);
+        swal(`Benutzer ${email} erfolgreich angelegt!`);
         reset();
         console.log(response);
       })
       .catch(error => console.log(error));
+    swal("Bitte füllen Sie alle Felder aus");
   };
 
   return (

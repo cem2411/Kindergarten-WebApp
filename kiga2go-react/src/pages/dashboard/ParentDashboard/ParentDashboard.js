@@ -44,7 +44,7 @@ const ParentDashboard = () => {
   return !isLoading ? (
     <div className="parentDashboard">
       <h1>
-        <span>Willkommen, Familie {user.secondNameKid} !</span>
+        <span>Willkommen Familie {user.secondNameKid} !</span>
       </h1>
       {ongoingAbsences.length > 0 ? (
         <h2>

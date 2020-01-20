@@ -26,9 +26,11 @@ const AdminDashboard = ({ user, absences }) => {
   return (
     <div className="adminDashboard">
       <h1>
-        <span>Hallo {user.secondNameKid} !</span>
+        <span>Willkommen {user.secondNameKid} !</span>
       </h1>
-      <h2 style={{ textAlign: "left" }}><span>Heutige Krankmeldungen:</span></h2>
+      <h2 style={{ textAlign: "left" }}>
+        <span>Heutige Krankmeldungen:</span>
+      </h2>
 
       {!isLoading ? (
         ongoingAbsences ? (
@@ -58,7 +60,11 @@ const AdminDashboard = ({ user, absences }) => {
               </tbody>
             </table>
           ) : (
-            <h2><span style={{ fontSize: "2rem" }}>Hurrah! Heute gibt es keine neuen Krankmeldungen.</span></h2>
+            <h2>
+              <span style={{ fontSize: "2rem" }}>
+                Hurrah! Heute gibt es keine neuen Krankmeldungen.
+              </span>
+            </h2>
           )
         ) : (
           <Spinner animation="grow" variant="primary" />
