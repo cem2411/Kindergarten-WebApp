@@ -4,6 +4,7 @@ import { Spinner, Button } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import axios from "../../../services/GlobalAxiosSettings";
 import UserContext from "../../../context/user-context";
+import "./style.scss";
 
 const ParentDashboard = () => {
   const DATE_FORMAT = "DD.MM.YYYY";
@@ -42,14 +43,20 @@ const ParentDashboard = () => {
 
   return !isLoading ? (
     <div className="parentDashboard">
-      <div>Willkommen, Familie {user.secondNameKid}</div>
+      <h1>
+        <span>Willkommen, Familie {user.secondNameKid} !</span>
+      </h1>
       {ongoingAbsences.length > 0 ? (
-        <div>Sie haben eine laufende Krankmeldung </div>
+        <h2>
+          <span>Sie haben eine laufende Krankmeldung: </span>
+        </h2>
       ) : (
-        <div>Sie haben keine laufenden Krankmeldungen </div>
+        <h2>
+          <span>Sie haben keine laufende Krankmeldung. </span>
+        </h2>
       )}
-      <Button className="btn btn-block" as={NavLink} to="/Absence">
-        Zu meinen aktuellen Krankmeldung
+      <Button className="button" as={NavLink} to="/absence">
+        Zu meinen Krankmeldungen
       </Button>
     </div>
   ) : (

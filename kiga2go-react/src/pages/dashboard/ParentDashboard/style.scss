@@ -1,0 +1,31 @@
+.parentDashboard {
+  span {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 25px;
+    padding: 0.5rem;
+  }
+
+  h2 {
+    margin-top: 10rem;
+    margin-bottom: 3rem;
+  }
+
+  table {
+    margin-top: 4rem;
+  }
+}
+
+.button {
+  text-align: center;
+  border: 0;
+  background-color: #3498db;
+  color: #fff;
+
+  cursor: pointer;
+  &:hover {
+    background-color: #2386c8;
+  }
+  &:focus {
+    outline: none;
+  }
+}

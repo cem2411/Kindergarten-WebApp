@@ -41,7 +41,9 @@ export default function AbsenceForm({ absences, onSubmit }) {
     <div className="absence">
       <form id="absence__form" onSubmit={submit}>
         <div className="absence__form__header">
-          <h2>Krankmeldung</h2>
+          <h1>
+            <span>Krankmeldung</span>
+          </h1>
         </div>
         <div className="absence__form__content">
           <DatePicker

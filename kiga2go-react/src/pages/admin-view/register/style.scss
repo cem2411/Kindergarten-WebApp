@@ -1,14 +1,16 @@
 .register {
-  width: 100%;
+  width: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  &__header {
-    h2 {
-      font-size: 3rem;
-    }
-  }
+  padding-right: 3rem;
+  padding-left: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  margin-left:auto;
+  margin-right: auto;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.6);
 
   &__content {
     flex-direction: column;

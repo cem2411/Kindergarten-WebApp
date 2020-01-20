@@ -1,8 +1,42 @@
 .table {
   font-size: 1.5rem;
-  h2 {
-    font-size: 3rem;
+
+  h1 {
     text-align: center;
     margin-bottom: 3rem;
+
+    span {
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 25px;
+      padding: 0.5rem;
+    }
   }
+}
+
+.filter {
+  background-color: rgba(243, 176, 176, 0.7);
+  border-radius: 25px;
+  padding-top: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: fit-content;
+
+  input {
+    -ms-transform: scale(2); /* IE */
+    -moz-transform: scale(2); /* FF */
+    -webkit-transform: scale(2); /* Safari and Chrome */
+    -o-transform: scale(2); /* Opera */
+    transform: scale(2);
+    margin-left: 2rem;
+  }
+
+  label {
+    margin-left: 1rem;
+  }
+}
+
+.h1 {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 25px;
+  padding: 0.5rem;
 }

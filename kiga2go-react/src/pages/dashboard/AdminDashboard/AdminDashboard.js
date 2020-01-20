@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import moment from "moment";
 import { Spinner } from "react-bootstrap";
 import axios from "../../../services/GlobalAxiosSettings";
+import "./style.scss";
 
 const AdminDashboard = ({ user, absences }) => {
   const DATE_FORMAT = "DD.MM.YYYY";
@@ -25,9 +26,9 @@ const AdminDashboard = ({ user, absences }) => {
   return (
     <div className="adminDashboard">
       <h1>
-        Hello {user.firstNameKid} {user.secondNameKid}
+        <span>Hallo {user.secondNameKid} !</span>
       </h1>
-      <h2 style={{ textAlign: "left" }}>Heutige Krankmeldungen</h2>
+      <h2 style={{ textAlign: "left" }}><span>Heutige Krankmeldungen:</span></h2>
 
       {!isLoading ? (
         ongoingAbsences ? (
@@ -57,7 +58,7 @@ const AdminDashboard = ({ user, absences }) => {
               </tbody>
             </table>
           ) : (
-            <span style={{ fontSize: "2rem" }}>Heute keine Krankmeldungen</span>
+            <h2><span style={{ fontSize: "2rem" }}>Hurrah! Heute gibt es keine neuen Krankmeldungen.</span></h2>
           )
         ) : (
           <Spinner animation="grow" variant="primary" />

@@ -162,7 +162,7 @@ export default function ListChildren() {
     <div className="main-container">
       <div className="list">
         <div className="list__header">
-          <h2 id="test">Liste aller Kinder</h2>
+          <h1 id="test"><span>Liste aller Kinder</span></h1>
         </div>
 
         <div className="list__searchbar">

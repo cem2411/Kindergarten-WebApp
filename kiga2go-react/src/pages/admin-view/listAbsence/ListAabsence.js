@@ -60,32 +60,37 @@ export default function Aabsence() {
   return absences ? (
     <div className="main-container">
       <div className="table">
-        <h2>Liste der Abwesenheiten</h2>
-        <div>
+        <h1>
+          <span>Liste der Abwesenheiten</span>
+        </h1>
+        <div className="filter">
           <input
             onChange={() => setShowPast(!showPast)}
             type="checkbox"
             name="past"
             value="past"
+            id="past"
             checked={showPast}
           />
-          <label htmlFor="past">Show Past</label>
+          <label htmlFor="past">Vergangene</label>
           <input
             onChange={() => setShowCurrent(!showCurrent)}
             checked={showCurrent}
             type="checkbox"
             name="current"
             value="current"
+            id="current"
           />
-          <label htmlFor="current">Show Current</label>
+          <label htmlFor="current">Aktuelle</label>
           <input
             onChange={() => setShowFuture(!showFuture)}
             checked={showFuture}
             type="checkbox"
             name="future"
             value="future"
+            id="future"
           />
-          <label htmlFor="future">Show future</label>
+          <label htmlFor="future">Zukünftige</label>
         </div>
         <table className="table table-bordered table-hover">
           <thead>

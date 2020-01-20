@@ -38,7 +38,7 @@ export default function Register({}) {
     <div className="register">
       <form onSubmit={submit} id="register__form">
         <div className="register__header">
-          <h2>Eltern Registrierung</h2>
+          <h1>Eltern Registrierung</h1>
         </div>
         <div className="register__content__form">
           <div className="register__content__form-group">
