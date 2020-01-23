@@ -1,68 +1,53 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## kiga2go
 
-## Available Scripts
+Dieses Projekt beinhaltet eine Web Applikation für die Kommunikationsunterstützung zwischen Pädagogen und Eltern in einem Kindergarten.
 
-In the project directory, you can run:
+Hierbei liegt aktuell der Fokus auf der Krankmeldefunktionalität, welcher nur einen von vielen zukünftigen Features von kiga2go repräsentiert.
 
-### `npm start`
+## Verwendete Software
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Implementiert wird das Frontend der Web Applikation mit Hilfe der JavaScript Framework React (v16.12.0), Bootstrap (v4.3.11) und einigen kleineren npm packages.
+Für das Backend wird ein Node.js Server eingerichtet und als Datenbank restdb.io verwendet.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Projekt starten:
 
-### `npm test`
+Das Frontend kann unter [http://localhost:3000] geöffnet werden.
+Das Backend läuft auf [http://localhost:5000].
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Schritt: Split Terminal öffnen.
+2. Schritt: Über das eine Terminal in den Frontend Ordner mit dem Befehl „cd .\kiga2go-react\“.
+3. Schritt: Über das andere Terminal in den Backend Ordner mit dem Befehl „cd .\kiga2go-js\“.
+4. Schritt: Beides mit „npm start“ zum Laufen bringen
 
-### `npm run build`
+!!! IMPORTANT !!!
+Logindaten für Admin
+Email: cem@admin.at
+Passwort: 123
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Logindaten für Eltern
+Email: aus der Adminansicht entnehmbar
+Passwort: 123
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Logindaten für restdb.io
+Username: kiga2go_2020
+Passwort: auf Anfrage per Email an sa17b016@technikum-wien.at
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Funktionen:
 
-### `npm run eject`
+Hierbei muss in Erwägung gezogen werden, dass in Abhängigkeit davon ob sich als User ein Elternteil oder Pädagoge bzw. Admin einloggt, die Weboberfläche eine unterschiedliche Ansicht bietet.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Im Folgenden sind die Funktionalitäten je nach Ansicht aufgelistet.
+Funktionalitäten der Elternansicht:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Willkommens-Dashboard
+- Krankmeldungen abschicken
+- Auflistung der abgeschickten Krankmeldungen
+- Edit und Delete Möglichkeit der Krankmeldungen
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Funktionalitäten der Pädagogenansicht:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Willkommens-Dashboard mit Auflistung der heute dazugekommenen Krankmeldungen
+- Übersichtliche Auflistung und Sortierung aller abgeschickten Krankmeldungen
+- Elternkontoregistrierung
+- Auflistung aller Kinder und Suchfilterfunktion
+- Edit und Delete Möglichkeit der Kinderliste
