@@ -14,7 +14,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "js-yaml": "^3.3.0",
-    "oas-tools": "^2.1.4",
+    "oas-tools": "^3.0.0",
     "simplecrypt": "^0.1.0",
     "sweetalert": "^2.1.2",
     "util": "^0.12.0"
